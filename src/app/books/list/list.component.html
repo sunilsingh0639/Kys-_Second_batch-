@@ -1,0 +1,90 @@
+
+
+<nav class="navbar navbar-light header-page">
+    <div class="container-fluid"><a class="navbar-brand">Manage Books </a>
+    </div>
+</nav>
+
+
+
+
+
+
+
+
+<div class="d-flex align-items-center p-2 my-2 text-white rounded shadow-sm bg-primary" style="background: linear-gradient(133.87deg,#dc3545 0%,#1d4fa2 50%,#c5198c 100%)">
+    <div class="lh-1">
+        <form novalidate="" class="col-12 col-lg-auto mb-1 mb-lg-0 me-lg-auto ng-untouched ng-pristine ng-valid"><input
+                type="search" placeholder="Search..." aria-label="Search" class="form-control search-height" #filter
+                (keyup)="sarch(filter.value)"></form>
+    </div>
+    <div class="btn-group me-1 ml-auto">
+        <button type="button" class="btn btn-primary btn-sm">Add New</button>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div>
+    <table class="col-12 table table-border">
+        <thead>
+            <tr>
+                <th *ngFor="let heading of headers">{{heading.name}}</th>
+                <!-- <th >name
+                    <i class="fa-solid fa-arrow-up-long" (click)="namesortup()"></i>
+                    <i class="fa-solid fa-arrow-down" (click)="namesortdown()"></i>
+                </th>
+
+                <th>image</th>
+                <th >price
+                    <i class="fa-solid fa-arrow-up-long" (click)="pricesortdown()"></i>
+                    <i class="fa-solid fa-arrow-down" (click)="pricesortup()"></i>
+                </th>
+                <th>category 
+                    <i class="fa-solid fa-arrow-up-long" (click)="categorysortup()"></i>
+                    <i class="fa-solid fa-arrow-down" (click)="categorysortdown()"></i>
+                </th>
+                <th>action</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let Books of booklist; let i = index"> 
+                <td>{{(pageNumber-1)*10+i+1}}</td> 
+                <td>{{Books.bookName}}</td>
+                <td> <img [src]="Books.image" alt="" height="70px" width="80px"></td>
+                <td>{{Books.pricing | currency: 'INR'}}</td>
+                <td>{{Books.category}}</td>
+                <td>
+                    <button class="btn btn-success" style="border-radius: 50%;">
+                        <i class="fa-solid fa-pen"></i>
+                    </button> &nbsp;
+                    <button class="btn btn-danger" style="border-radius: 50%;">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <nav aria-label="page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link"  (click)="previous()">Previous</a></li>
+            <li (click)="getPaginatedData(page)" class="page-item" *ngFor="let page of noOfPage "><a
+                    class="page-link">{{page}}</a></li>
+            <li class="page-item"><a class="page-link"  (click)="next()">Next</a></li>
+        </ul>
+    </nav>
+    <p> In total there are 31 books. </p>
+
+</div>
+
+ <app-table [title] ="heading" [Data]="booklist" [headers]="headers"></app-table>
+ 

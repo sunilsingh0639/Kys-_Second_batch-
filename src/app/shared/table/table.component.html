@@ -1,0 +1,40 @@
+<div>
+<!-- <nav class="navbar navbar-light bg-dark">
+    <form>
+        <input >
+    </form>
+</nav> -->
+
+<nav class="navbar navbar-light header-page">
+    <div class="container-fluid"><a class="navbar-brand">{{title}} </a>
+    </div>
+</nav>
+</div>
+
+<div class="d-flex align-items-center p-2 my-2 text-white rounded shadow-sm bg-primary" style="background: linear-gradient(133.87deg,#dc3545 0%,#1d4fa2 50%,#c5198c 100%)">
+    <div class="lh-1">
+        <form novalidate="" class="col-12 col-lg-auto mb-1 mb-lg-0 me-lg-auto ng-untouched ng-pristine ng-valid"><input
+                type="search" placeholder="Search..." aria-label="Search" class="form-control search-height" ></form>
+    </div>
+    <div class="btn-group me-1 ml-auto">
+        <button type="button" class="btn btn-primary btn-sm">Add New</button>
+    </div>
+</div>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th *ngFor="let head of headers">{{head.name}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of Data;  let i=index">
+                <td *ngFor="let head of headers">
+                    {{item[head.key]}}
+                </td>
+                
+            </tr>
+        </tbody>
+    </table>
+</div>
